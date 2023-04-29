@@ -1,17 +1,16 @@
 package am.a_t.todolist.presentation.adapter
 
-import am.a_t.todolist.R
 import am.a_t.todolist.databinding.ItemUserBinding
 import am.a_t.todolist.model.User
 import am.a_t.todolist.presentation.viewModel.MyViewModel
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-class UserAdapter(private val viewModel: MyViewModel, private val click: (Long) -> Unit) : ListAdapter<User, UserAdapter.MyViewHolder>(DiffUtilItemCallBack()) {
+class UserAdapter(private val viewModel: MyViewModel, private val click: (Long) -> Unit) :
+    ListAdapter<User, UserAdapter.MyViewHolder>(DiffUtilItemCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(

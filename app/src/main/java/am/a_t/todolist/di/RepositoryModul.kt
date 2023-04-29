@@ -17,10 +17,10 @@ val repositoryModule = module {
 private var INSTANCE: AppDatabase? = null
 fun getDatabase(context: Context): AppDatabase {
     val tempInstance = INSTANCE
-    if(tempInstance != null){
+    if (tempInstance != null) {
         return tempInstance
     }
-    synchronized(context.applicationContext){
+    synchronized(context.applicationContext) {
         val instance = Room.databaseBuilder(
             context.applicationContext,
             AppDatabase::class.java,

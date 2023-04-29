@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-class TodoAdapter(private val viewModel: MyViewModel, private val click: (Todo) -> Unit) : ListAdapter<Todo, TodoAdapter.MyViewHolder>(DiffUtilItemCallBack()) {
+class TodoAdapter(private val viewModel: MyViewModel, private val click: (Todo) -> Unit) :
+    ListAdapter<Todo, TodoAdapter.MyViewHolder>(DiffUtilItemCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
@@ -37,7 +38,12 @@ class TodoAdapter(private val viewModel: MyViewModel, private val click: (Todo) 
                 } else {
                     val spannableString = SpannableString(todo.text)
                     val strikethroughSpan = StrikethroughSpan()
-                    spannableString.setSpan(strikethroughSpan, 0, todo.text.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    spannableString.setSpan(
+                        strikethroughSpan,
+                        0,
+                        todo.text.length,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
                     tvText.text = spannableString
                 }
                 isChecked.isChecked = todo.isChecked

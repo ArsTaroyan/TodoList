@@ -69,10 +69,8 @@ class CreateNewTodoListFragment : Fragment() {
 
     private fun initViewModel() {
         viewModel.usersList()
-        Log.d("TAG", "initViewModel: dsfsdf")
         lifecycleScope.launch {
             viewModel.usersListLiveData.first().collectLatest {
-                Log.d("TAG", "initViewModel: $it")
                 userAdapter.submitList(it)
             }
         }

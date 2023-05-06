@@ -1,6 +1,5 @@
 package am.a_t.todolist.domain.entity
 
-import am.a_t.todolist.domain.entity.Todo
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index

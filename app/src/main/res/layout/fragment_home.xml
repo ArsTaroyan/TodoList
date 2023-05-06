@@ -12,11 +12,11 @@
         android:layout_width="@dimen/space_0"
         android:layout_height="wrap_content"
         android:background="@color/gray"
-        app:titleMarginStart="50dp"
-        app:titleTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleMarginStart="50dp"
+        app:titleTextColor="@color/white" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btnBack"
@@ -26,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/toolBar"
         app:layout_constraintStart_toStartOf="@id/toolBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_backspace"/>
+        app:srcCompat="@drawable/ic_backspace" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btnAdd"
@@ -36,18 +36,18 @@
         app:layout_constraintBottom_toBottomOf="@+id/toolBar"
         app:layout_constraintEnd_toEndOf="@id/toolBar"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_add"/>
+        app:srcCompat="@drawable/ic_add" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTodoList"
         android:layout_width="@dimen/space_0"
         android:layout_height="@dimen/space_0"
-        android:layout_marginVertical="@dimen/space_20"
         android:layout_marginHorizontal="@dimen/space_10"
+        android:layout_marginVertical="@dimen/space_20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolBar"
-        tools:listitem="@layout/item_todo"/>
+        tools:listitem="@layout/item_todo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

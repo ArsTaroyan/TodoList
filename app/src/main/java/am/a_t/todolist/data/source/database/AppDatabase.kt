@@ -1,10 +1,10 @@
 package am.a_t.todolist.data.source.database
 
-import am.a_t.todolist.domain.iteractors.TodoDao
-import am.a_t.todolist.domain.iteractors.UserDao
 import am.a_t.todolist.data.source.convert.Converters
 import am.a_t.todolist.domain.entity.Todo
 import am.a_t.todolist.domain.entity.User
+import am.a_t.todolist.domain.iteractors.TodoDao
+import am.a_t.todolist.domain.iteractors.UserDao
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters

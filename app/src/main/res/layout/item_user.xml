@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="@dimen/space_5"
-    xmlns:tools="http://schemas.android.com/tools">
-    
+    android:layout_marginVertical="@dimen/space_5">
+
     <androidx.cardview.widget.CardView
         android:layout_width="@dimen/space_0"
         android:layout_height="@dimen/space_55"
@@ -20,21 +20,21 @@
             android:id="@+id/tvUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
             android:layout_marginStart="@dimen/space_20"
             android:layout_marginEnd="@dimen/space_50"
-            android:textColor="@color/black"
-            android:layout_gravity="center|start"
-            android:textSize="@dimen/size_17"
-            android:maxLines="1"
             android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_17"
             tools:text="@string/app_name" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnDelete"
             android:layout_width="@dimen/space_35"
             android:layout_height="@dimen/space_35"
-            android:layout_marginEnd="@dimen/space_10"
             android:layout_gravity="center|end"
+            android:layout_marginEnd="@dimen/space_10"
             android:padding="@dimen/space_5"
             app:srcCompat="@drawable/ic_delete" />
 

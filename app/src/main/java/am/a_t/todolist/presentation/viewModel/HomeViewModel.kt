@@ -10,11 +10,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 
-class HomeViewModel(private val repository: Repository): ViewModel() {
+class HomeViewModel(private val repository: Repository) : ViewModel() {
     val getUser = MutableSharedFlow<User>(1)
     val todosListLiveData = MutableSharedFlow<Flow<List<Todo>>>(1)
 
-    fun todosList(id: Long)  {
+    fun todosList(id: Long) {
         viewModelScope.launch {
             todosListLiveData.emit(repository.getAllTodo(id))
         }

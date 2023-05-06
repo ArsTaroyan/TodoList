@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 
-class CreateNewTodoListViewModel(private val repository: Repository): ViewModel() {
+class CreateNewTodoListViewModel(private val repository: Repository) : ViewModel() {
     val usersListLiveData = MutableSharedFlow<Flow<List<User>>>(1)
 
     fun usersList() {

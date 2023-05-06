@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-class UserAdapter(private val viewModel: CreateNewTodoListViewModel, private val click: (Long) -> Unit) :
+class UserAdapter(
+    private val viewModel: CreateNewTodoListViewModel,
+    private val click: (Long) -> Unit
+) :
     ListAdapter<User, UserAdapter.MyViewHolder>(DiffUtilItemCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

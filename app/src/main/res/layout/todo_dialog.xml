@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/space_20"
-    android:background="@drawable/back_add">
+    android:background="@drawable/back_add"
+    android:padding="@dimen/space_20">
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edText"
         android:layout_width="@dimen/space_0"
         android:layout_height="@dimen/space_50"
-        android:paddingHorizontal="@dimen/space_10"
-        android:layout_marginTop="@dimen/space_35"
         android:layout_marginHorizontal="@dimen/space_10"
-        android:hint="@string/your_todo"
+        android:layout_marginTop="@dimen/space_35"
         android:background="@drawable/back_edit"
+        android:hint="@string/your_todo"
         android:inputType="textCapWords"
+        android:paddingHorizontal="@dimen/space_10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

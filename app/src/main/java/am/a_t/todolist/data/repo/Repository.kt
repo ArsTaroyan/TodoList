@@ -1,9 +1,9 @@
 package am.a_t.todolist.data.repo
 
-import am.a_t.todolist.domain.iteractors.TodoDao
-import am.a_t.todolist.domain.iteractors.UserDao
 import am.a_t.todolist.domain.entity.Todo
 import am.a_t.todolist.domain.entity.User
+import am.a_t.todolist.domain.iteractors.TodoDao
+import am.a_t.todolist.domain.iteractors.UserDao
 import kotlinx.coroutines.flow.Flow
 
 class Repository(

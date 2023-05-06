@@ -1,8 +1,8 @@
 package am.a_t.todolist.presentation.adapter
 
 import am.a_t.todolist.databinding.ItemTodoBinding
-import am.a_t.todolist.model.Todo
-import am.a_t.todolist.presentation.viewModel.MyViewModel
+import am.a_t.todolist.domain.entity.Todo
+import am.a_t.todolist.presentation.viewModel.HomeViewModel
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StrikethroughSpan
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-class TodoAdapter(private val viewModel: MyViewModel, private val click: (Todo) -> Unit) :
+class TodoAdapter(private val viewModel: HomeViewModel, private val click: (Todo) -> Unit) :
     ListAdapter<Todo, TodoAdapter.MyViewHolder>(DiffUtilItemCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

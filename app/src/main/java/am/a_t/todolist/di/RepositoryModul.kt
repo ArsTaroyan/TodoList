@@ -1,6 +1,6 @@
 package am.a_t.todolist.di
 
-import am.a_t.todolist.data.database.AppDatabase
+import am.a_t.todolist.data.source.database.AppDatabase
 import am.a_t.todolist.data.repo.Repository
 import android.content.Context
 import androidx.room.Room

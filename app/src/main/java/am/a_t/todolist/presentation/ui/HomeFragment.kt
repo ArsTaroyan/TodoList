@@ -3,9 +3,9 @@ package am.a_t.todolist.presentation.ui
 import am.a_t.todolist.R
 import am.a_t.todolist.databinding.FragmentHomeBinding
 import am.a_t.todolist.databinding.TodoDialogBinding
-import am.a_t.todolist.model.Todo
+import am.a_t.todolist.domain.entity.Todo
 import am.a_t.todolist.presentation.adapter.TodoAdapter
-import am.a_t.todolist.presentation.viewModel.MyViewModel
+import am.a_t.todolist.presentation.viewModel.HomeViewModel
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,6 +16,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -24,7 +26,7 @@ class HomeFragment : Fragment() {
     private lateinit var todoAdapter: TodoAdapter
     private lateinit var myDialog: TodoDialogBinding
     private lateinit var alertDialog: AlertDialog
-    private val viewModel by viewModel<MyViewModel>()
+    private val viewModel by viewModel<HomeViewModel>()
     private val args by navArgs<HomeFragmentArgs>()
 
     override fun onCreateView(
@@ -70,9 +72,12 @@ class HomeFragment : Fragment() {
 
     private fun initViewModel() {
         viewModel.getUser(args.userId)
+        viewModel.todosList(args.userId)
 
-        viewModel.todosListListLiveData(args.userId).observe(viewLifecycleOwner) {
-            todoAdapter.submitList(it)
+        lifecycleScope.launch {
+            viewModel.todosListLiveData.first().collectLatest {
+                todoAdapter.submitList(it)
+            }
         }
 
         lifecycleScope.launch {

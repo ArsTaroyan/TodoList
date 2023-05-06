@@ -1,18 +1,18 @@
 package am.a_t.todolist.data.repo
 
-import am.a_t.todolist.data.database.TodoDao
-import am.a_t.todolist.data.database.UserDao
-import am.a_t.todolist.model.Todo
-import am.a_t.todolist.model.User
-import androidx.lifecycle.LiveData
+import am.a_t.todolist.domain.iteractors.TodoDao
+import am.a_t.todolist.domain.iteractors.UserDao
+import am.a_t.todolist.domain.entity.Todo
+import am.a_t.todolist.domain.entity.User
+import kotlinx.coroutines.flow.Flow
 
 class Repository(
     private val userDao: UserDao,
     private val todoDao: TodoDao
 ) {
 
-    val getAllUser: LiveData<List<User>> = userDao.getAllUser()
-    fun getAllTodo(id: Long): LiveData<List<Todo>> = todoDao.getAllTodo(id)
+    fun getAllUser(): Flow<List<User>> = userDao.getAllUser()
+    fun getAllTodo(id: Long): Flow<List<Todo>> = todoDao.getAllTodo(id)
 
     suspend fun getUser(userId: Long): User {
         return userDao.getUser(userId)

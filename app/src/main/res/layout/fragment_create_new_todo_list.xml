@@ -4,32 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grayMain"
-    tools:context=".presentation.ui.CreateNewTodoListFragment">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolBar"
-        android:layout_width="@dimen/space_0"
-        android:layout_height="wrap_content"
-        android:background="@color/gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/app_name"
-        app:titleTextColor="@color/white" />
+    android:background="@drawable/back"
+    tools:context=".presentation.ui.newTodoList.CreateNewTodoListFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvLogin"
         android:layout_width="@dimen/space_0"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_120"
+        android:layout_marginTop="@dimen/space_50"
         android:text="@string/create_new_todo_list"
         android:textColor="@color/black"
         android:textSize="@dimen/size_25"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/glEnd"
         app:layout_constraintStart_toEndOf="@+id/glStart"
-        app:layout_constraintTop_toBottomOf="@+id/toolBar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edName"
@@ -40,58 +29,64 @@
         android:hint="@string/list_name"
         android:inputType="textCapWords"
         android:paddingHorizontal="@dimen/space_20"
-        app:layout_constraintEnd_toStartOf="@+id/glEnd"
+        android:layout_marginEnd="@dimen/space_20"
+        app:layout_constraintEnd_toStartOf="@+id/btnAdd"
         app:layout_constraintStart_toEndOf="@+id/glStart"
         app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/btnOpen"
+        android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_30"
-        android:background="@drawable/btn_back"
-        android:paddingHorizontal="@dimen/space_30"
-        android:paddingVertical="@dimen/space_5"
+        android:background="@drawable/back_dialog_button"
+        android:paddingHorizontal="@dimen/space_35"
+        android:paddingVertical="@dimen/space_8"
         android:text="@string/add"
-        android:textColor="@color/white"
+        android:gravity="center"
+        android:textColor="@color/black"
         android:textSize="@dimen/size_17"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/edName"
         app:layout_constraintEnd_toStartOf="@+id/glEnd"
-        app:layout_constraintTop_toBottomOf="@+id/edName" />
+        app:layout_constraintTop_toTopOf="@+id/edName" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/backRecyclerView"
         android:layout_width="@dimen/space_0"
         android:layout_height="@dimen/space_0"
-        android:layout_marginVertical="@dimen/space_20"
-        app:cardCornerRadius="@dimen/space_10"
+        android:layout_marginTop="@dimen/space_30"
+        android:layout_marginBottom="@dimen/space_20"
+        android:background="@drawable/rv_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/glEnd"
         app:layout_constraintStart_toEndOf="@+id/glStart"
-        app:layout_constraintTop_toBottomOf="@+id/btnOpen">
+        app:layout_constraintTop_toBottomOf="@+id/btnAdd"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvUserList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/space_10"
-            tools:listitem="@layout/item_user" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUserList"
+        android:layout_width="@dimen/space_0"
+        android:layout_height="@dimen/space_0"
+        android:layout_margin="@dimen/space_10"
+        tools:listitem="@layout/item_item"
+        app:layout_constraintBottom_toBottomOf="@id/backRecyclerView"
+        app:layout_constraintTop_toTopOf="@id/backRecyclerView"
+        app:layout_constraintStart_toStartOf="@id/backRecyclerView"
+        app:layout_constraintEnd_toEndOf="@id/backRecyclerView"/>
 
-    </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/space_65" />
+        app:layout_constraintGuide_begin="@dimen/space_30" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/space_65" />
+        app:layout_constraintGuide_end="@dimen/space_30" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

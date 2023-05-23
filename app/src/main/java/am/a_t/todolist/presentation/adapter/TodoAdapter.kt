@@ -2,7 +2,7 @@ package am.a_t.todolist.presentation.adapter
 
 import am.a_t.todolist.databinding.ItemTodoBinding
 import am.a_t.todolist.domain.entity.Todo
-import am.a_t.todolist.presentation.viewModel.HomeViewModel
+import am.a_t.todolist.presentation.ui.homeFragment.HomeViewModel
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StrikethroughSpan

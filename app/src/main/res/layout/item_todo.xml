@@ -7,7 +7,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="@dimen/space_0"
-        android:layout_height="@dimen/space_65"
+        android:layout_height="@dimen/space_60"
         android:layout_margin="@dimen/space_15"
         app:cardCornerRadius="@dimen/space_10"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,6 +41,7 @@
             android:layout_height="@dimen/space_40"
             android:layout_gravity="end|center"
             android:padding="@dimen/space_5"
+            android:layout_marginEnd="@dimen/space_10"
             app:srcCompat="@drawable/ic_delete" />
 
     </androidx.cardview.widget.CardView>

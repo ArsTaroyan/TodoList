@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 )
 data class Todo(
     @PrimaryKey(autoGenerate = true) val id: Long,
-    @ColumnInfo("user_id") val user_id: Long,
+    @ColumnInfo("item_id") val item_id: Long,
     @ColumnInfo("text_todo") val text: String,
     @ColumnInfo("is_checked") var isChecked: Boolean
 )

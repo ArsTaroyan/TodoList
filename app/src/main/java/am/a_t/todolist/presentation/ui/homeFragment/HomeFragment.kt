@@ -1,16 +1,18 @@
-package am.a_t.todolist.presentation.ui
+package am.a_t.todolist.presentation.ui.homeFragment
 
 import am.a_t.todolist.R
 import am.a_t.todolist.databinding.FragmentHomeBinding
+import am.a_t.todolist.databinding.RemoveDialogBinding
 import am.a_t.todolist.databinding.TodoDialogBinding
 import am.a_t.todolist.domain.entity.Todo
 import am.a_t.todolist.presentation.adapter.TodoAdapter
-import am.a_t.todolist.presentation.viewModel.HomeViewModel
 import android.app.AlertDialog
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.marginStart
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -25,6 +27,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var todoAdapter: TodoAdapter
     private lateinit var myDialog: TodoDialogBinding
+    private lateinit var myDialogRemove: RemoveDialogBinding
     private lateinit var alertDialog: AlertDialog
     private val viewModel by viewModel<HomeViewModel>()
     private val args by navArgs<HomeFragmentArgs>()
@@ -35,7 +38,7 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        initAdapter()
+        initAdapter(inflater, container)
         initViewModel()
         initClickListeners(inflater, container)
 
@@ -49,22 +52,47 @@ class HomeFragment : Fragment() {
             .show()
 
         myDialog.btnAddTodo.setOnClickListener {
-            viewModel.addTodo(
-                Todo(
-                    0,
-                    args.userId,
-                    myDialog.edText.text.toString(),
-                    false
+            if (!myDialog.edText.text.toString().isNullOrEmpty()) {
+                viewModel.addTodo(
+                    Todo(
+                        0,
+                        args.userId,
+                        myDialog.edText.text.toString(),
+                        false
+                    )
                 )
-            )
+            }
             alertDialog.dismiss()
         }
+
+        myDialog.btnCloseTodo.setOnClickListener {
+            alertDialog.dismiss()
+        }
+
         alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
     }
 
-    private fun initAdapter() {
+    private fun removeDialog(inflater: LayoutInflater, container: ViewGroup?, item: Todo) {
+        myDialogRemove = RemoveDialogBinding.inflate(inflater, container, false)
+        alertDialog = AlertDialog.Builder(requireContext())
+            .setView(myDialogRemove.root)
+            .show()
+
+        myDialogRemove.btnYesTodo.setOnClickListener {
+            viewModel.deleteTodo(item)
+            alertDialog.dismiss()
+        }
+
+        myDialogRemove.btnNoTodo.setOnClickListener {
+            alertDialog.dismiss()
+        }
+        
+        alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+    }
+
+    private fun initAdapter(inflater: LayoutInflater, container: ViewGroup?) {
         todoAdapter = TodoAdapter(viewModel) {
-            viewModel.deleteTodo(it)
+            removeDialog(inflater, container, it)
         }
         binding.rvTodoList.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTodoList.adapter = todoAdapter
@@ -81,8 +109,8 @@ class HomeFragment : Fragment() {
         }
 
         lifecycleScope.launch {
-            viewModel.getUser.collect {
-                binding.toolBar.title = it.name
+            viewModel.getItem.collect {
+                binding.toolBar.title = it.title
             }
         }
     }

@@ -1,29 +1,29 @@
 package am.a_t.todolist.data.repo
 
 import am.a_t.todolist.domain.entity.Todo
-import am.a_t.todolist.domain.entity.User
+import am.a_t.todolist.domain.entity.Item
 import am.a_t.todolist.domain.iteractors.TodoDao
-import am.a_t.todolist.domain.iteractors.UserDao
+import am.a_t.todolist.domain.iteractors.ItemDao
 import kotlinx.coroutines.flow.Flow
 
 class Repository(
-    private val userDao: UserDao,
+    private val itemDao: ItemDao,
     private val todoDao: TodoDao
 ) {
 
-    fun getAllUser(): Flow<List<User>> = userDao.getAllUser()
+    fun getAllItem(): Flow<List<Item>> = itemDao.getAllItem()
     fun getAllTodo(id: Long): Flow<List<Todo>> = todoDao.getAllTodo(id)
 
-    suspend fun getUser(userId: Long): User {
-        return userDao.getUser(userId)
+    suspend fun getItem(itemId: Long): Item {
+        return itemDao.getItem(itemId)
     }
 
-    suspend fun insetUser(user: User) {
-        userDao.insertUser(user)
+    suspend fun insetItem(item: Item) {
+        itemDao.insertItem(item)
     }
 
-    suspend fun deleteUser(user: User) {
-        userDao.deleteUser(user)
+    suspend fun deleteItem(item: Item) {
+        itemDao.deleteItem(item)
     }
 
     suspend fun insetTodo(todo: Todo) {

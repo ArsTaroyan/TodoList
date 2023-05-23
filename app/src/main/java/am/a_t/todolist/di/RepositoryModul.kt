@@ -9,7 +9,7 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
     factory {
-        Repository(getDatabase(androidContext()).userDao(), getDatabase(androidContext()).todoDao())
+        Repository(getDatabase(androidContext()).itemDao(), getDatabase(androidContext()).todoDao())
     }
 }
 

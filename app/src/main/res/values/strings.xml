@@ -6,4 +6,9 @@
     <string name="add">Add</string>
     <string name="list_name">List name</string>
     <string name="create_new_todo_list">Create New Todo List</string>
+    <string name="add_your_item">Add your item</string>
+    <string name="close">Close</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="quiz">Are you sure you want to delete this item?</string>
 </resources>

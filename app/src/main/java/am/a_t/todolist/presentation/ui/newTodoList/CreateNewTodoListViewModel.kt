@@ -1,7 +1,7 @@
-package am.a_t.todolist.presentation.viewModel
+package am.a_t.todolist.presentation.ui.newTodoList
 
 import am.a_t.todolist.data.repo.Repository
-import am.a_t.todolist.domain.entity.User
+import am.a_t.todolist.domain.entity.Item
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -10,23 +10,23 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 
 class CreateNewTodoListViewModel(private val repository: Repository) : ViewModel() {
-    val usersListLiveData = MutableSharedFlow<Flow<List<User>>>(1)
+    val itemsListLiveData = MutableSharedFlow<Flow<List<Item>>>(1)
 
     fun usersList() {
         viewModelScope.launch {
-            usersListLiveData.emit(repository.getAllUser())
+            itemsListLiveData.emit(repository.getAllItem())
         }
     }
 
-    fun addUsers(user: User) {
+    fun addUsers(item: Item) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insetUser(user)
+            repository.insetItem(item)
         }
     }
 
-    fun deleteUser(user: User) {
+    fun deleteUser(item: Item) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteUser(user)
+            repository.deleteItem(item)
         }
     }
 }

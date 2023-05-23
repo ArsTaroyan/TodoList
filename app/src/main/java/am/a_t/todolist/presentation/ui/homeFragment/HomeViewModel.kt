@@ -1,8 +1,8 @@
-package am.a_t.todolist.presentation.viewModel
+package am.a_t.todolist.presentation.ui.homeFragment
 
 import am.a_t.todolist.data.repo.Repository
+import am.a_t.todolist.domain.entity.Item
 import am.a_t.todolist.domain.entity.Todo
-import am.a_t.todolist.domain.entity.User
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val repository: Repository) : ViewModel() {
-    val getUser = MutableSharedFlow<User>(1)
+    val getItem = MutableSharedFlow<Item>(1)
     val todosListLiveData = MutableSharedFlow<Flow<List<Todo>>>(1)
 
     fun todosList(id: Long) {
@@ -22,7 +22,7 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
 
     fun getUser(id: Long) {
         viewModelScope.launch {
-            getUser.emit(repository.getUser(id))
+            getItem.emit(repository.getItem(id))
         }
     }
 

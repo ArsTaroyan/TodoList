@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grayMain"
-    tools:context=".presentation.ui.HomeFragment">
+    android:background="@drawable/back"
+    tools:context=".presentation.ui.homeFragment.HomeFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBar"
         android:layout_width="@dimen/space_0"
         android:layout_height="wrap_content"
-        android:background="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleMarginStart="50dp"
-        app:titleTextColor="@color/white" />
+        app:titleMarginEnd="@dimen/space_30"
+        app:titleMarginStart="@dimen/space_60"
+        app:titleTextColor="@color/black" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/btnBack"

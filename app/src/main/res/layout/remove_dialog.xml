@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingVertical="@dimen/space_10"
-    android:paddingHorizontal="@dimen/space_20">
+    android:paddingHorizontal="@dimen/space_50">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/backDialog"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/space_20"
         android:layout_marginTop="@dimen/space_10"
-        android:text="@string/add_your_item"
+        android:text="@string/quiz"
         android:textColor="@color/black"
         android:textSize="@dimen/size_17"
         android:textStyle="bold"
@@ -30,36 +30,23 @@
         app:layout_constraintStart_toStartOf="@+id/backDialog"
         app:layout_constraintTop_toTopOf="@+id/backDialog" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edText"
-        android:layout_width="@dimen/space_0"
-        android:layout_height="@dimen/space_50"
-        android:background="@drawable/back_edit"
-        android:layout_marginTop="@dimen/space_20"
-        android:hint="@string/your_todo"
-        android:inputType="textCapWords"
-        android:paddingHorizontal="@dimen/space_10"
-        app:layout_constraintEnd_toEndOf="@+id/tvTitle"
-        app:layout_constraintStart_toStartOf="@+id/tvTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
-
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/btnAddTodo"
+        android:id="@+id/btnYesTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/back_dialog_button"
         android:paddingHorizontal="@dimen/space_40"
         android:paddingVertical="@dimen/space_8"
-        android:text="@string/add"
+        android:text="@string/yes"
         android:textColor="@color/black"
         android:textSize="@dimen/size_17"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCloseTodo"
-        app:layout_constraintEnd_toEndOf="@+id/edText"
-        app:layout_constraintTop_toTopOf="@+id/btnCloseTodo" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnNoTodo"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+        app:layout_constraintTop_toTopOf="@+id/btnNoTodo" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/btnCloseTodo"
+        android:id="@+id/btnNoTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_20"
@@ -67,12 +54,12 @@
         android:paddingHorizontal="@dimen/space_40"
         android:paddingVertical="@dimen/space_8"
         android:layout_marginBottom="@dimen/space_10"
-        android:text="@string/close"
+        android:text="@string/no"
         android:textColor="@color/black"
         android:textSize="@dimen/size_17"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/backDialog"
-        app:layout_constraintStart_toStartOf="@+id/edText"
-        app:layout_constraintTop_toBottomOf="@+id/edText" />
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
